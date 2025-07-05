@@ -80,8 +80,8 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-6 bg-green-900 text-white text-center">
-        <p>&copy; 2025 Sistema de Recolección de Residuos | Todos los derechos reservados</p>
+      <footer className="py-6 bg-stone-800 text-white text-center">
+        <p>&copy; 2025 WeWin | Sistema de Recolección y Reciclaje Inteligente</p>
       </footer>
     </div>
   );
