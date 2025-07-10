@@ -16,8 +16,12 @@ import PanelPaquetes from '../pages/PanelPaquetes.jsx';
 import PanelClientes from '../pages/PanelClientes.jsx';
 import PaquetesWeWin from '../pages/PaquetesWeWin.jsx';
 import Pago from '../pages/Pago.jsx';
-import PanelPlanes from '../pages/PanelPlanes.jsx'; // ✅ corregido
+import PanelPlanes from '../pages/PanelPlanes.jsx';
 import { AuthProvider } from '../contex/ContexAuth.jsx';
+
+// 🆕 Importa los nuevos componentes
+import VerMapa from '../pages/VerMapa.jsx';
+import ActualizarDatos from '../pages/ActualizarDatos.jsx';
 
 export default function Rutas() {
   const route = createBrowserRouter([
@@ -35,12 +39,17 @@ export default function Rutas() {
         { path: "registrarse", element: <Registrarse /> },
         { path: "pago", element: <Pago /> },
         { path: "planes", element: <PanelPlanes /> },
-
         { path: "clientes", element: <PanelClientes /> },
         { path: "empleados", element: <PanelEmpleados /> },
         { path: "paquetes-admin", element: <PanelPaquetes /> },
         { path: "clientes/mapa", element: <MapaClientes /> },
         { path: "administrar", element: <LayoutAdministrador /> },
+        
+        // 🆕 Nuevas rutas agregadas:
+        { path: "panel-planes", element: <PanelPlanes /> },
+        { path: "ver-mapa", element: <VerMapa /> },
+        { path: "actualizar-datos", element: <ActualizarDatos /> },
+
         { path: "*", element: <NoFoundPage /> }
       ]
     }
