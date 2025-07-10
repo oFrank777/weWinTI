@@ -12,9 +12,9 @@ export const dataSourceOptions: DataSourceOptions = {
   host: 'localhost',
   port: 3306,
   username: 'root',
-  password: 'admin',
-  database: 'wewin_db',
-  synchronize: true,          // ← false en prod
+  password: 'admin123',
+  database: 'weWin',
+  synchronize: false,          // ← false en prod
   entities: [Plan, User, ReporteResiduo, Pago],   // ← NO readonly
 };
 

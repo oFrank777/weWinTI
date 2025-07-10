@@ -14,8 +14,4 @@ export class PlanesController {
   @Get()
   listar() { return this.planesService.findAllActivos(); }
 
-  @Post(':planId/seleccionar')
-  seleccionar(@Req() req, @Param('planId') id: string) {
-    return this.planesService.asignarPlanACliente(req.user.id, +id);
-  }
 }

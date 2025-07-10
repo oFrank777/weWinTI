@@ -1,11 +1,10 @@
 import {
   Entity, PrimaryGeneratedColumn, Column,
   CreateDateColumn, UpdateDateColumn,
-  ManyToMany, OneToMany, JoinTable          //  <── añade JoinTable
+  ManyToOne, OneToMany, JoinColumn          //  <── añade JoinTable
 } from 'typeorm';
-import { Plan } from '@/planes/entities/plan.entity';
 import { ReporteResiduo } from '@/residuos/entities/reporte-residuo.entity';
-
+import { Plan } from '@/planes/entities/plan.entity';
 export enum Role { Cliente='cliente', Transporte='transporte', Admin='admin' }
 
 @Entity()
@@ -22,14 +21,14 @@ export class User {
   @Column({ type: 'enum', enum: Role, default: Role.Cliente })
   role: Role;
 
-  /* ← NUEVO: relación con planes */
-  @ManyToMany(() => Plan, (plan) => plan.clientes, { cascade: true })
-  @JoinTable()
-  planes: Plan[];
-
   /* inversa para reportes (si no la tenías) */
   @OneToMany(() => ReporteResiduo, (rep) => rep.cliente)
   reportes: ReporteResiduo[];
+  
+  @ManyToOne(() => Plan, (plan) => plan.clientes, { eager: true, nullable: true })
+@JoinColumn({ name: 'planId' }) // 👈 esto es importante
+plan: Plan;
+
 
   @CreateDateColumn() createdAt: Date;
   @UpdateDateColumn() updatedAt: Date;
