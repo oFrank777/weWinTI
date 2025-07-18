@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestj
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { Role } from './entities/user.entity';
 
 @Controller('users')
 export class UsersController {
@@ -10,7 +11,7 @@ export class UsersController {
   // Listar todos o por rol
   @Get()
   findAll(@Query('role') role?: string) {
-    return this.usersService.findAll(role);
+    return this.usersService.findAll(role as Role);
   }
 
   // Crear usuario (cliente o admin)

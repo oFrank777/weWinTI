@@ -19,6 +19,9 @@ import Pago from '../pages/Pago.jsx';
 import PanelPlanes from '../pages/PanelPlanes.jsx';
 import { AuthProvider } from '../contex/ContexAuth.jsx';
 
+import PanelTrabajador from '../pages/PanelTrabajador.jsx';
+import SolicitarRecojo from '../pages/SolicitarRecojo.jsx';
+
 // 🆕 Importa los nuevos componentes
 import VerMapa from '../pages/VerMapa.jsx';
 import ActualizarDatos from '../pages/ActualizarDatos.jsx';
@@ -30,6 +33,14 @@ export default function Rutas() {
       element: <RootLayout />,
       errorElement: <NoFoundPage />,
       children: [
+        {
+          path: "solicitar-recojo",
+          element: <SolicitarRecojo />
+        },
+        {
+          path: "trabajador",
+          element: <PanelTrabajador />
+        },
         { index: true, element: <Home /> },
         { path: "login", element: <LoginPage /> },
         { path: "servicios", element: <ServiciosWeWein /> },

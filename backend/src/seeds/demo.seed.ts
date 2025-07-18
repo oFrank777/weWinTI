@@ -21,12 +21,12 @@ export default async function run(ds: DataSource) {
   /* 1. Planes */
   const planRepo = ds.getRepository(Plan);
   const planes = await planRepo.save([
-    planRepo.create({ nombre: 'Hogar Semanal',   frecuencia: PeriodicidadPlan.Semanal,   precioBase: 15 }),
-    planRepo.create({ nombre: 'Hogar Mensual',   frecuencia: PeriodicidadPlan.Mensual,   precioBase: 50 }),
-    planRepo.create({ nombre: 'Hogar Semestral', frecuencia: PeriodicidadPlan.Semestral, precioBase: 250 }),
-    planRepo.create({ nombre: 'Empresa Semanal', frecuencia: PeriodicidadPlan.Semanal,   precioBase: 60 }),
-    planRepo.create({ nombre: 'Empresa Mensual', frecuencia: PeriodicidadPlan.Mensual,   precioBase: 220 }),
-    planRepo.create({ nombre: 'Empresa Semestral', frecuencia: PeriodicidadPlan.Semestral, precioBase: 1200 }),
+    planRepo.create({ nombre: 'Hogar Semanal',   frecuencia: PeriodicidadPlan.SEMANAL,   precioBase: 15 }),
+    planRepo.create({ nombre: 'Hogar Mensual',   frecuencia: PeriodicidadPlan.MENSUAL,   precioBase: 50 }),
+    planRepo.create({ nombre: 'Hogar Semestral', frecuencia: PeriodicidadPlan.SEMESTRAL, precioBase: 250 }),
+    planRepo.create({ nombre: 'Empresa Semanal', frecuencia: PeriodicidadPlan.SEMANAL,   precioBase: 60 }),
+    planRepo.create({ nombre: 'Empresa Mensual', frecuencia: PeriodicidadPlan.MENSUAL,   precioBase: 220 }),
+    planRepo.create({ nombre: 'Empresa Semestral', frecuencia: PeriodicidadPlan.SEMESTRAL, precioBase: 1200 }),
   ]);
 
   /* 2. Usuarios */
@@ -43,7 +43,7 @@ export default async function run(ds: DataSource) {
       nombre: `Cliente ${i}`,
       direccion: `Calle ${i} #${i * 10}`,
       role: Role.Cliente,
-      planes: [rnd(planes)],
+      plan: rnd(planes),
     });
   }
 

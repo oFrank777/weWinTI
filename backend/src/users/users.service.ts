@@ -23,10 +23,10 @@ export class UsersService {
     if (role) {
       return this.repo.find({
         where: { role },
-        relations: ['planes', 'reportes'],
+        relations: ['plan', 'reportes'],
       });
     }
-    return this.repo.find({ relations: ['planes', 'reportes'] });
+    return this.repo.find({ relations: ['plan', 'reportes'] });
   }
 
   async findOne(id: number, relations: string[] = []): Promise<User | null> {

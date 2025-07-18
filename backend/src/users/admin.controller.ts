@@ -29,9 +29,9 @@ export class AdminController {
   @Put('clientes/:id/planes')
   assignPlanes(
     @Param('id', ParseIntPipe) userId: number,
-    @Body('planIds') planIds: number[],
+    @Body('planId') planId: number,
   ) {
-    return this.usersService.assignPlanes(userId, planIds);
+    return this.usersService.assignPlan(userId, planId);
   }
 
   // GET /admin/clientes/:id/reportes
